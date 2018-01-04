@@ -1,0 +1,38 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start-with-infra": "docker-compose up -d",
+    "build": "babel src --out-dir dist --source-maps",
+    "start": "nodemon src/index.js --exec babel-node",
+    "logs": "docker-compose logs -f",
+    "prepush": "npm test",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": ["prettier --write", "git add"]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.13.6",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^21.2.0",
+    "babel-preset-env": "^1.6.1",
+    "husky": "^0.14.3",
+    "jest": "^21.2.1",
+    "lint-staged": "^6.0.0",
+    "nodemon": "^1.12.5",
+    "prettier": "^1.9.1",
+    "regenerator-runtime": "^0.11.1"
+  }
+}
