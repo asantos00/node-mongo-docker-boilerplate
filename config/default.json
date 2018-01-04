@@ -1,0 +1,7 @@
+{
+  "db": {
+    "host": "db",
+    "port": "",
+    "dbName": "food-at-my-seat"
+  }
+}

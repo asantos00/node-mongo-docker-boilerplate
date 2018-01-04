@@ -2,8 +2,13 @@ import express from "express";
 import process from "process";
 import mongoose from "mongoose";
 import morgan from "morgan";
+import config from "config";
 
-mongoose.connect("mongodb://db/food-at-my-seat", { useMongoClient: true });
+console.log(config.get("db.dbName"));
+mongoose.connect(
+  `mongodb://${config.get("db.host")}/${config.get("db.dbName")}`,
+  { useMongoClient: true }
+);
 
 const db = mongoose.connection;
 db
